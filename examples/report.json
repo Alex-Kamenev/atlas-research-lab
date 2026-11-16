@@ -1,0 +1,203 @@
+{
+  "schema": "atlas.research_report/1",
+  "package_version": "0.1.0",
+  "dependencies": {
+    "numpy": "2.5.2",
+    "scipy": "1.18.1"
+  },
+  "settings": {
+    "seed": 7,
+    "learners": 12,
+    "attempts_per_learner": 24,
+    "bootstrap_rounds": 40,
+    "holdout_fraction": 0.25
+  },
+  "data": {
+    "source": "generated-neutral-fixture-v1",
+    "synthetic": true,
+    "items": 180,
+    "surfaces": [
+      "allocation",
+      "pattern",
+      "sequence"
+    ],
+    "training_observations": 216,
+    "test_observations": 72
+  },
+  "protocol": "Per-learner chronological prefix/tail; predict before observing each held-out outcome",
+  "limitations": [
+    "Synthetic outcomes do not establish human learning effectiveness.",
+    "Oracle reads simulator probabilities and is not a deployable predictor.",
+    "A finite sample need not rank the oracle first.",
+    "Fixed catalog and same learners; not a cold-start or unseen-learner evaluation.",
+    "Bootstrap fractions are descriptive, not null-hypothesis-test p-values.",
+    "Undefined AUC values and intervals are represented as null.",
+    "No game policy, runtime benchmark, or production recommendation is produced."
+  ],
+  "models": [
+    {
+      "name": "oracle",
+      "role": "synthetic_reference",
+      "scores": {
+        "auc": 0.6857142857142857,
+        "log_loss": 0.644067556744844,
+        "brier": 0.22621906445222895,
+        "ece": 0.1659251553038808,
+        "accuracy": 0.6666666666666666,
+        "n": 72.0
+      },
+      "learner_bootstrap_95_percent": {
+        "log_loss": [
+          0.6051066868472247,
+          0.6862519795827772
+        ],
+        "auc": [
+          0.586131774074339,
+          0.7821807359307359
+        ]
+      }
+    },
+    {
+      "name": "base_rate",
+      "role": "baseline",
+      "scores": {
+        "auc": 0.5,
+        "log_loss": 0.6955069324143257,
+        "brier": 0.2511788408779149,
+        "ece": 0.03703703703703687,
+        "accuracy": 0.4861111111111111,
+        "n": 72.0
+      },
+      "learner_bootstrap_95_percent": {
+        "log_loss": [
+          0.6901661803795586,
+          0.7032928480312752
+        ],
+        "auc": [
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "name": "item_only",
+      "role": "baseline",
+      "scores": {
+        "auc": 0.5285714285714286,
+        "log_loss": 0.704310088121632,
+        "brier": 0.2554174759610512,
+        "ece": 0.1978515751774906,
+        "accuracy": 0.4861111111111111,
+        "n": 72.0
+      },
+      "learner_bootstrap_95_percent": {
+        "log_loss": [
+          0.6318403312775837,
+          0.7800675663354119
+        ],
+        "auc": [
+          0.35251159668154164,
+          0.6591123351901216
+        ]
+      },
+      "paired_log_loss_vs_base_rate": {
+        "difference": 0.008803155707306276,
+        "interval_95_percent": [
+          -0.05983798973832473,
+          0.08838924531950348
+        ],
+        "bootstrap_fraction_left_lower": 0.375
+      }
+    },
+    {
+      "name": "bkt",
+      "role": "baseline",
+      "scores": {
+        "auc": 0.527027027027027,
+        "log_loss": 0.7332690662693194,
+        "brier": 0.2662639344494959,
+        "ece": 0.14953898627410522,
+        "accuracy": 0.5555555555555556,
+        "n": 72.0
+      },
+      "learner_bootstrap_95_percent": {
+        "log_loss": [
+          0.6644709378961197,
+          0.807480398983926
+        ],
+        "auc": [
+          0.44819685757185757,
+          0.6241425863672126
+        ]
+      },
+      "paired_log_loss_vs_base_rate": {
+        "difference": 0.03776213385499372,
+        "interval_95_percent": [
+          -0.03450399936745687,
+          0.11583425117304634
+        ],
+        "bootstrap_fraction_left_lower": 0.225
+      }
+    },
+    {
+      "name": "elo_irt",
+      "role": "baseline",
+      "scores": {
+        "auc": 0.5505791505791506,
+        "log_loss": 0.7012739834231081,
+        "brier": 0.2538654372380358,
+        "ece": 0.12312125694534393,
+        "accuracy": 0.5277777777777778,
+        "n": 72.0
+      },
+      "learner_bootstrap_95_percent": {
+        "log_loss": [
+          0.631528053025003,
+          0.7740610121717401
+        ],
+        "auc": [
+          0.38538590381284815,
+          0.675983898538078
+        ]
+      },
+      "paired_log_loss_vs_base_rate": {
+        "difference": 0.005767051008782387,
+        "interval_95_percent": [
+          -0.06015026799090536,
+          0.08116010936474052
+        ],
+        "bootstrap_fraction_left_lower": 0.35
+      }
+    },
+    {
+      "name": "pfa",
+      "role": "baseline",
+      "scores": {
+        "auc": 0.5474903474903475,
+        "log_loss": 0.718350187062061,
+        "brier": 0.2611415298857522,
+        "ece": 0.18270105863308655,
+        "accuracy": 0.4722222222222222,
+        "n": 72.0
+      },
+      "learner_bootstrap_95_percent": {
+        "log_loss": [
+          0.6452794810506748,
+          0.8145091262705402
+        ],
+        "auc": [
+          0.33501930501930505,
+          0.6910231660231659
+        ]
+      },
+      "paired_log_loss_vs_base_rate": {
+        "difference": 0.02284325464773529,
+        "interval_95_percent": [
+          -0.052724648189595325,
+          0.12157605025851188
+        ],
+        "bootstrap_fraction_left_lower": 0.3
+      }
+    }
+  ]
+}
