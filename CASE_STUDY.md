@@ -6,4 +6,4 @@ The scoped core contains BaseRate, Oracle, ItemOnly, BKT, EloIRT and PFA, togeth
 
 **Evidence:** The standalone extraction passed **77 tests** with `python -m pytest -q`. A generated 12-learner, 24-attempt-per-learner run produced aggregate JSON/Markdown reports. An offline-built wheel reproduced the source report after installation. These checks are separate from earlier tests of the original game/lab.
 
-**Status and limits:** Independent, AI-assisted research prototype prepared in November 2026. Its learners are simulated. The experiments are not peer-reviewed evidence of human learning effectiveness, and their results do not establish a game policy or a generally superior learner model.
+**Status and limits:** Independent, AI-assisted research prototype released in November 2026. The [public MIT repository](https://github.com/Alex-Kamenev/atlas-research-lab) passed its GitHub Actions checks on Python 3.10, 3.12 and 3.14. Its learners are simulated. The experiments are not peer-reviewed evidence of human learning effectiveness, and their results do not establish a game policy or a generally superior learner model.

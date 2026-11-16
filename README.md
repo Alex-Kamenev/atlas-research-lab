@@ -2,7 +2,7 @@
 
 A standalone Python research harness for prototype learner-model selection experiments on synthetic learners. It adapts the generic research core of a personal ATLAS lab: synthetic cohort generation, model replay and evaluation metrics.
 
-The original generic algorithms are preserved in the scoped adaptation. Isolation, a new neutral synthetic fixture and the command-line entry point were prepared with AI assistance for this release. See [Origin](ORIGIN.md) and the [case study](CASE_STUDY.md).
+The original generic algorithms are preserved in the scoped adaptation. Isolation, a new neutral synthetic fixture and the command-line entry point were prepared with AI assistance for this release. See [Origin](ORIGIN.md), the [case study](CASE_STUDY.md), and the [portfolio walkthrough](https://alex-kamenev.github.io/work/atlas/).
 
 ## Scope
 
@@ -51,7 +51,7 @@ Use explicit experiment settings when comparing runs. Results depend on the synt
 
 ## Verification
 
-`python -m pytest -q` passed **77 tests** on Python 3.12 with NumPy 2.5.2 and SciPy 1.18.1. A seeded synthetic CLI run completed, an offline wheel build/install succeeded, and the installed wheel reproduced the source aggregate report exactly. The CI matrix is prepared for Python 3.10, 3.12 and 3.14; remote CI and the other interpreter versions have not been executed during preparation. Earlier tests of the original personal lab are separate evidence.
+`python -m pytest -q` passed **77 tests** on Python 3.12 with NumPy 2.5.2 and SciPy 1.18.1. A seeded synthetic CLI run completed, an offline wheel build/install succeeded, and the installed wheel reproduced the source aggregate report exactly. GitHub Actions [passed tests, a synthetic CLI smoke run and wheel builds on Python 3.10, 3.12 and 3.14](https://github.com/Alex-Kamenev/atlas-research-lab/actions/runs/43778253819). Earlier tests of the original personal lab are separate evidence.
 
 These are prototype model-selection experiments. The harness and its results are not peer-reviewed research, a human learning-effectiveness study or a production recommendation.
 
